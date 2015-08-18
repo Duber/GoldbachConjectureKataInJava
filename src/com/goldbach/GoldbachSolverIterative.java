@@ -1,6 +1,7 @@
 package com.goldbach;
 
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 /**
  * Created by duber on 18/08/15.
@@ -11,8 +12,9 @@ public class GoldbachSolverIterative {
         if (!NumberUtil.isEvenNumber(target)){
             throw new Exception("Target must be even.");
         }
-        ArrayList<Integer> result = new ArrayList<Integer>();
-        ArrayList<Integer> primeNumbers = new ArrayList<Integer>();
+        ArrayList<Integer> result = new ArrayList<>();
+        ArrayList<Integer> primeNumbers = new ArrayList<>();
+
         for(int i = 2 ; i < target; i++){
             if (!NumberUtil.isPrimeNumber(i)) continue;
             primeNumbers.add(i);
