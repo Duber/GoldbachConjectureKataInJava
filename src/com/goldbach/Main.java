@@ -6,7 +6,11 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-	    System.out.println(goldbach_partition_of(8));
+        for (int i = 0; i < 100000; i++){
+            if (isEvenNumber(i)){
+                System.out.println(goldbach_partition_of(i));
+            }
+        }
     }
 
     public static ArrayList<Integer> goldbach_partition_of(int target) throws Exception {
