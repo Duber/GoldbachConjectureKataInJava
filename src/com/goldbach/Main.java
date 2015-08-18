@@ -12,8 +12,8 @@ public class Main {
             }
         }*/
 
-        System.out.println(GoldbachSolverIterative.goldbach_partition_of(10));
-        System.out.println(GoldbachSolverRecursive.goldbach_partition_of(10));
+//        System.out.println(GoldbachSolverIterative.goldbach_partition_of(10));
+        System.out.println(new GoldbachSolverRecursive().goldbach_partition_of(10000));
 
     }
 

@@ -8,23 +8,21 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class GoldbachSolverRecursive {
 
-    public static ArrayList<Integer> goldbach_partition_of(int target) throws Exception {
+    private ArrayList<Integer> primeNumbers = new ArrayList<>();
+    private int primeCandidate = 2;
+
+    public ArrayList<Integer> goldbach_partition_of(int target) throws Exception {
         if (!NumberUtil.isEvenNumber(target)){
             throw new Exception("Target must be even.");
         }
-        AtomicReference ref = new AtomicReference();
-        ref.set(new ArrayList<Integer>());
-
-        return goldbach_solver(target, 2, ref);
-    }
-
-    private static ArrayList<Integer> goldbach_solver(int target, int primeCandidate, AtomicReference<ArrayList<Integer>> primeNumbersRef){
-        if (!NumberUtil.isPrimeNumber(primeCandidate)) return goldbach_solver(target, primeCandidate+1, primeNumbersRef);
         if (primeCandidate >= target) return new ArrayList<>();
 
-        ArrayList<Integer> primeNumbers = primeNumbersRef.get();
+        if (!NumberUtil.isPrimeNumber(primeCandidate)) {
+            primeCandidate++;
+            return goldbach_partition_of(target);
+        }
+
         primeNumbers.add(primeCandidate);
-        primeNumbersRef.set(primeNumbers);
 
         for (int i = 0; i < primeNumbers.size(); i++){
             int num = primeNumbers.get(i);
@@ -35,6 +33,10 @@ public class GoldbachSolverRecursive {
                 return result;
             }
         }
-        return goldbach_solver(target, primeCandidate+1, primeNumbersRef);
+
+        primeCandidate++;
+        return goldbach_partition_of(target);
+
     }
+
 }
