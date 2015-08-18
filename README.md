@@ -12,3 +12,7 @@ Some examples of input and corresponding output:
 * goldbach_partition_of(10) ->  [5,5]
 
 Source: [Solveet](http://www.solveet.com/)
+
+---
+
+I solved it both iteratively and recursively. However, recursive form doesn't escalate well.
