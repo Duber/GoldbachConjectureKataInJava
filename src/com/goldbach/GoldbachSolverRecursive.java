@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by duber on 18/08/15.
  */
-public class GoldbachSolverIterative {
+public class GoldbachSolverRecursive {
 
     public static ArrayList<Integer> goldbach_partition_of(int target) throws Exception {
         if (!NumberUtil.isEvenNumber(target)){
